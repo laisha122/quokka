@@ -1,0 +1,67 @@
+mysql>  show tables;
++----------------------------+
+| Tables_in_laisha12$default |
++----------------------------+
+| detalle_horario            |
+| horario                    |
+| plantilla_detalle_horario  |
++----------------------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+
+^C
+mysql> CREATE TABLE USUARIO;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> CEREATE TABLE USUARIOS (
+    -> nombre varchar(25) DEFAULT NULL,
+    -> apellido varhcar(25)DEFAULT NULL,
+    -> departamento varchar(25) DEFAULT NULL
+    -> 
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syn
+tax to use near 'CEREATE TABLE USUARIOS (
+nombre varchar(25) DEFAULT NULL,
+apellido varhcar(25)DE' at line 1
+mysql> CEREATE TABLE USUARIOS (
+    -> nombre varchar(25) DEFAULT NULL,
+    -> apellido varhcar(25)DEFAULT NULL,
+    -> departamento varchar(25) DEFAULT NULL
+    -> 
+    -> );CEREATE TABLE USUARIOS (
+^C
+mysql>     -> nombre varchar(25) DEFAULT NULL,
+    ->     -> apellido varhcar(25)DEFAULT NULL,
+    ->     -> departamento varchar(25) DEFAULT NULL
+    ->     -> 
+    -> CREATE TABLE USUARIOS ( nombre varchar(25) DEFAULT NULL, apellido varhcar(25)DEFAULT NULL, departamento varchar(25) DEFAULT NULL  )
+;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syn
+tax to use near '-> nombre varchar(25) DEFAULT NULL,
+    -> apellido varhcar(25)DEFAULT NULL,
+   ' at line 1
+mysql> CREATE TABLE USUARIOS; (
+ERROR 4028 (HY000): A table must have at least one visible column.
+    -> 
+^C
+mysql> CREATE TABLE USUARIOS (
+    -> nombre varchar(25) DEFAULT NULL,
+    -> apellido varchar(25) DEFAULT NULL,
+    -> departamento varchar(25) DEFAULT NULL
+    -> 
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+mysql> show tbales;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syn
+tax to use near 'tbales' at line 1
+mysql> show tables;
++----------------------------+
+| Tables_in_laisha12$default |
++----------------------------+
+| USUARIOS                   |
+| detalle_horario            |
+| horario                    |
+| plantilla_detalle_horario  |
++----------------------------+
+4 rows in set (0.00 sec)
+mysql> 
