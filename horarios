@@ -1,0 +1,140 @@
+welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14975694
+Server version: 8.0.40 Source distribution
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| laisha12$default   |
+| performance_schema |
++--------------------+
+3 rows in set (0.02 sec)
+
+mysql> use laisha12$default;
+Database changed
+mysql> Show tables;
+Empty set (0.01 sec)
+
+mysql> CREATE TABLE detalle_horario (
+    ->   horario_id int(11) NOT NULL,
+    ->   hora_salida date NOT NULL,
+    ->   hora_entrada date NOT NULL,
+    ->   codigo_incapacidad varchar(25) DEFAULT NULL,
+    ->   PRIMARY KEY (horario_id, hora_salida)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> CREATE TABLE plantilla_detalle_horario (
+    ->   plantilla_id int(11) NOT NULL,
+    ->   dia int(11) NOT NULL,
+    ->   codigo_incapacidad varchar(25) DEFAULT NULL,
+    ->   turno varchar(25) DEFAULT NULL,
+    ->   PRIMARY KEY (plantilla_id, dia)
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.04 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 1, NULL, '1/10');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 2, NULL, '1/11,5');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 3, NULL, '1/10');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 4, NULL, '1/11,5');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 5, NULL, '1/10');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 6, 'vacaciones', NULL);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (1, 7, 'vacaciones', NULL);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 1, NULL, '2/11,5');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 2, NULL, '1/11,5');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 3, NULL, '2/11,5');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 4, NULL, '1|11.5');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 5, NULL, '1/11,5');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 6, 'vacaciones', NULL);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (2, 7, 'vacaciones', NULL);
+Query OK, 1 row affected (0.00 sec)
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (3, 1, NULL, '1#8');
+Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (3, 2, NULL, '1.0');
+Query OK, 1 row affected (0.00 sec)
+mysql> INSERT INTO plantilla_detalle_horario (plantilla_id, dia, codigo_incapacidad, turno)
+    ->   VALUES (3, 3, 'viaje_negocios', NULL);
+Query OK, 1 row affected (0.01 sec)
+mysql>  CREATE TABLE horario (
+    ->   horario_id int(11) NOT NULL AUTO_INCREMENT,
+    ->   plantilla_id int(11) DEFAULT NULL,
+    ->   PRIMARY KEY (horario_id)
+    -> );
+Query OK, 0 rows affected, 2 warnings (0.03 sec)
+mysql> INSERT INTO horario (horario_id, plantilla_id)
+    ->   VALUES (1, 5);
+Query OK, 1 row affected (0.00 sec)
+mysql> INSERT INTO horario (horario_id, plantilla_id)
+    ->   VALUES (2, 1);
+Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO horario (horario_id, plantilla_id)
+    ->   VALUES (4, 2);
+Query OK, 1 row affected (0.00 sec)
+mysql> INSERT INTO horario (horario_id, plantilla_id)
+    ->   VALUES (3, 3);
+Query OK, 1 row affected (0.01 sec)
+mysql> INSERT INTO horario (horario_id, plantilla_id)
+    ->   VALUES (5, 4);
+Query OK, 1 row affected (0.01 sec)
+mysql>  show tables;
++----------------------------+
+| Tables_in_laisha12$default |
++----------------------------+
+| detalle_horario            |
+| horario                    |
+| plantilla_detalle_horario  |
++----------------------------+
+3 rows in set (0.00 sec)
+mysql> 
